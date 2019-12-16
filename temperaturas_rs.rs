@@ -2,8 +2,8 @@ use std::io;
 fn main() {
 
     let mut escala_inicial = String::new();
-    let mut temp_final :f32 = 0.0;
-
+    let temp_final :f32 ;
+    let mut k = String::new();
     println!("Programa de convertidor de temperaturas.");
     println!("Celsius, Fahrenheit, Kelvin y Rankine.");
     println!("Ingresar la escala inicial de temperatura en letra");
@@ -15,24 +15,24 @@ fn main() {
     if escala_inicial == "celsius" {
         println!("Escogiste la escala {}", escala_inicial);
         println!("Ingresar la temperatura inicial en número (dígito)");
-        let mut inicial = parsear_temp_inicial();
+        let inicial = parsear_temp_inicial();
         if inicial > -274.0{
-            let mut escala_final = escoger_escala();
+            let escala_final = escoger_escala();
             if escala_inicial != escala_final {
                 if escala_final == "fahrenheit"{
                     temp_final = (inicial * 1.8) + 32.0;
-                    println!("La temperatura final es {}", temp_final);
+                    println!("La temperatura final es {} grados", temp_final);
                 } else if escala_final == "kelvin"{
                     temp_final = inicial + 273.15;
-                    println!("La temperatura final es {}", temp_final);
+                    println!("La temperatura final es {} grados", temp_final);
                 } else if escala_final == "rankine"{
                     temp_final = (inicial + 273.15) * 1.8;
-                    println!("La temperatura final es {}", temp_final);
+                    println!("La temperatura final es {} grados", temp_final);
                 } else {
                     println!("Ingresar una escala válida");
                 }
             } else {
-                println!("Ingresar una escala distinta a la inicial")
+                println!("Ingresar una escala distinta a la inicial");
             }
         } else {
             println!("Ingresar una temperatura físicamente posible");
@@ -41,27 +41,88 @@ fn main() {
     } else if escala_inicial == "fahrenheit" {
         println!("Escogiste la escala {}", escala_inicial);
         println!("Ingresar la temperatura inicial en número (dígito)");
-        let mut inicial = parsear_temp_inicial();
-        let mut escala_final = escoger_escala();
+        let inicial = parsear_temp_inicial();
+        if inicial > -459.67{
+            let escala_final = escoger_escala();
+            if escala_inicial != escala_final {
+                if escala_final == "celsius"{
+                    temp_final = (inicial - 32.0) * 0.555 ;
+                    println!("La temperatura final es {} grados", temp_final);
+                } else if escala_final == "kelvin"{
+                    temp_final = (inicial + 459.67 ) * 0.555 ;
+                    println!("La temperatura final es {} grados", temp_final);
+                } else if escala_final == "rankine"{
+                    temp_final = inicial + 459.67 ;
+                    println!("La temperatura final es {} grados", temp_final);
+                } else {
+                    println!("Ingresar una escala válida");
+                }
+                } else {
+                    println!("Ingresar una escala distinta a la inicial");
+                }
+        } else {
+            println!("Ingresar una temperatura físicamente posible");
+        }
 
     } else if escala_inicial == "kelvin" {
         println!("Escogiste la escala {}", escala_inicial);
         println!("Ingresar la temperatura inicial en número (dígito)");
-        let mut inicial = parsear_temp_inicial();
-        let mut escala_final = escoger_escala();  
+        let inicial = parsear_temp_inicial();
+        if inicial > -1.0 {
+            let escala_final = escoger_escala();
+            if escala_inicial != escala_final {
+            if escala_final == "celsius"{
+                temp_final = inicial - 273.15 ;
+                println!("La temperatura final es {} grados", temp_final);                 
+            } else if escala_final == "fahrenheit"{
+                temp_final = (inicial * 1.8) - 459.667 ;               
+                println!("La temperatura final es {} grados", temp_final);
+            }  else if escala_final == "rankine"{
+                temp_final = inicial * 1.8 ;
+                println!("La temperatura final es {} grados", temp_final);
+            } else {
+                println!("Ingresar una escala válida");
+            }
+            } else {
+                println!("Ingresar una escala distinta a la inicial");
+            }
+        } else {
+            println!("Ingresar una temperatura inicial en número (dígito)");
+        } 
 
     } else if escala_inicial == "rankine" {
         println!("Escogiste la escala {}", escala_inicial);
         println!("Ingresar la temperatura inicial en número (dígito)");
-        let mut inicial = parsear_temp_inicial();
-        let mut escala_final = escoger_escala();    
-
+        let inicial = parsear_temp_inicial();
+        if inicial > -1.0 {
+            let escala_final = escoger_escala();
+            if escala_inicial != escala_final {
+                if escala_final == "celsius" {
+                    temp_final = (inicial - 491.667) / 1.8;
+                    println!("La temperatura final es {} grados", temp_final);                    
+                } else if escala_final == "fahrenheit" {
+                    temp_final = inicial - 459.667;
+                    println!("La temperatura final es {} grados", temp_final);
+                } else if escala_final == "kelvin" {
+                    temp_final = inicial / 1.8;
+                    println!("La temperatura final es {} grados", temp_final);
+                } else {
+                    println!("Ingresar una escala válida");
+                }
+            } else {
+                println!("Ingresar una escala distinta a la inicial");
+            }
+        } else {
+            println!("Ingresar una temperatura inicial en número (dígito)");
+        }
     } else {
         println!("Por favor ingresa una escala válida")
     }
+    println!("Ingresar enter para salir");
+    io::stdin().read_line(&mut k)
+        .expect("Lo siento, no entendí eso muy bien");
+
 }
-
-
 fn parsear_temp_inicial() -> f32 {
     let mut temp_inicial = String::new();
     io::stdin().read_line(&mut temp_inicial)
