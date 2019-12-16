@@ -16,14 +16,28 @@ fn main() {
     
     if escala_inicial == "celsius" {
         imprimir_inicial(escala_inicial);
-        io::stdin().read_line(&mut temp_inicial);
-        let inicial: f64 = temp_inicial.trim().parse();
+        io::stdin().read_line(&mut temp_inicial)
+            .expect("Lo siento, no entendí eso muy bien");
+        parsear_temp_inicial(temp_inicial);
+
     } else if escala_inicial == "fahrenheit" {
         imprimir_inicial(escala_inicial);
+        io::stdin().read_line(&mut temp_inicial)
+            .expect("Lo siento, no entendí eso muy bien");
+        parsear_temp_inicial(temp_inicial);
+
     } else if escala_inicial == "kelvin" {
         imprimir_inicial(escala_inicial);
+        io::stdin().read_line(&mut temp_inicial)
+            .expect("Lo siento, no entendí eso muy bien");
+            parsear_temp_inicial(temp_inicial);  
+
     } else if escala_inicial == "rankine" {
         imprimir_inicial(escala_inicial);
+        io::stdin().read_line(&mut temp_inicial)
+            .expect("Lo siento, no entendí eso muy bien");
+            parsear_temp_inicial(temp_inicial);    
+
     } else {
         println!("Por favor ingresa una escala válida")
     }
@@ -33,3 +47,9 @@ fn imprimir_inicial(escala_inicial: String) {
     println!("Escogiste la escala {}", escala_inicial);
     println!("Ingresar la temperatura inicial en número (dígito)")
 }
+
+fn parsear_temp_inicial(temp_inicial: String) -> f32{
+    let inicial: f32 = temp_inicial.trim().to_string().parse::<f32>().unwrap();
+    println!("La temperatura inicial es de {} grados", inicial);
+    return inicial;
+  }
