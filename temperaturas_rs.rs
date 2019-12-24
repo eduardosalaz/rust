@@ -4,6 +4,7 @@ fn main() {
     let mut escala_inicial = String::new();
     let temp_final :f32 ;
     let mut k = String::new();
+    
     println!("Programa de convertidor de temperaturas.");
     println!("Celsius, Fahrenheit, Kelvin y Rankine.");
     println!("Ingresar la escala inicial de temperatura en letra");
