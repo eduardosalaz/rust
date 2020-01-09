@@ -24,8 +24,8 @@ fn main (){
         println!("Adivinaste: {}", adivinanza);
         
         match adivinanza.cmp(&numero_secreto) {
-            Ordering::Less => println!("Demasiado pequeño"),
-            Ordering::Greater => println!("Demasiado grande"),
+            Ordering::Less => println!("Demasiado pequeño."),
+            Ordering::Greater => println!("Demasiado grande."),
             Ordering::Equal => {
                 println!("Ganaste");
                 println!("El número en el que estaba pensando es {}", numero_secreto);
