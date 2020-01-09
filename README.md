@@ -1,5 +1,5 @@
 # Rust
-Personal repository for my Rustlang learning.
+Personal repository for my [Rustlang](https://www.rust-lang.org/) learning.
 
 # Instalation
 Apparently, in order for compilation to happen you need some C linkers, in my case I chose MSVC linker from Microsoft VS C++.
