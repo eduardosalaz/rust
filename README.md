@@ -10,3 +10,5 @@ I use VS Code as my text editor (although it´s almost a complete IDE). In the f
 -[ ] Learn data structures and algorithms for real
 -[ ] Convince everybody to use Rust instead
 
+- [ ] Mercury
+- [x] Venus
