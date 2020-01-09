@@ -1,5 +1,12 @@
-# rust
-aprender rust intento eso yo
+# Rust
+Personal repository for my Rustlang learning
 
-# instalacion
-aparentemente para poder compilar rust necesitas un compilador de C en tu maquina, yo instale las Build Tools incluidas en Visual Studio 2019, y uso VS Code como text editor, compilo directamente desde powershell
+# Instalation
+Apparently. in order for compilation to happen you need some C linkers, in my case I chose MSVC linker from Microsoft VS C++.
+I use VS Code as my text editor (although it´s almost a complete IDE). In the future I may or may not use [Visual Rust](https://marketplace.visualstudio.com/items?itemName=vosen.VisualRust), a VS extension for Rust Dev. I am also interested in using [Rust Lang Server](https://github.com/rust-lang/rls) for integration with Vim. In the meantime, I will stick with VS Code
+
+# TODO
+-[] Build something nice
+-[] Learn data structures and algorithms for real
+-[] Convince everybody to use Rust instead
+
