@@ -1,117 +1,117 @@
 use std::io;
 fn main() {
 
-    let mut escala_inicial = String::new();
-    let temp_final :f32 ;
+    let mut initial_scale = String::new();
+    let final_temp :f32 ;
     let mut k = String::new();
     
-    println!("Programa de convertidor de temperaturas.");
-    println!("Celsius, Fahrenheit, Kelvin y Rankine.");
-    println!("Ingresar la escala inicial de temperatura en letra");
+    println!("Temperature converter program.");
+    println!("Celsius, Fahrenheit, Kelvin and Rankine.");
+    println!("Enter the name of the initial scale.");
 
-    io::stdin().read_line(&mut escala_inicial)
-        .expect("Lo siento, no entendí eso muy bien");
-    escala_inicial = escala_inicial.to_lowercase().trim().to_string();
+    io::stdin().read_line(&mut initial_scale)
+        .expect("Sorry, didn't quite catch that.");
+    initial_scale = initial_scale.to_lowercase().trim().to_string();
     
-    if escala_inicial == "celsius" {
-        println!("Escogiste la escala {}", escala_inicial);
-        println!("Ingresar la temperatura inicial en número (dígito)");
-        let inicial = parsear_temp_inicial();
+    if initial_scale == "celsius" {
+        println!("You chose the {} scale", initial_scale);
+        println!("Now enter the initial temperature in numbers.");
+        let inicial = parse_initial_temp();
         if inicial > -274.0{
-            let escala_final = escoger_escala();
-            if escala_inicial != escala_final {
-                if escala_final == "fahrenheit"{
-                    temp_final = (inicial * 1.8) + 32.0;
-                    println!("La temperatura final es {} grados", temp_final);
-                } else if escala_final == "kelvin"{
-                    temp_final = inicial + 273.15;
-                    println!("La temperatura final es {} grados", temp_final);
-                } else if escala_final == "rankine"{
-                    temp_final = (inicial + 273.15) * 1.8;
-                    println!("La temperatura final es {} grados", temp_final);
+            let final_scale = choose_scale();
+            if initial_scale != final_scale {
+                if final_scale == "fahrenheit"{
+                    final_temp = (inicial * 1.8) + 32.0;
+                    println!("The final temperature in degrees is {}", final_temp);
+                } else if final_scale == "kelvin"{
+                    final_temp = inicial + 273.15;
+                    println!("The final temperature in degrees is {}", final_temp);
+                } else if final_scale == "rankine"{
+                    final_temp = (inicial + 273.15) * 1.8;
+                    println!("The final temperature in degrees is {}", final_temp);
                 } else {
-                    println!("Ingresar una escala válida");
+                    println!("Please enter a valid scale");
                 }
             } else {
-                println!("Ingresar una escala distinta a la inicial");
+                println!("Please enter a scale different to the original");
             }
         } else {
-            println!("Ingresar una temperatura físicamente posible");
+            println!("Please enter a physicically valid temperature");
         }
 
-    } else if escala_inicial == "fahrenheit" {
-        println!("Escogiste la escala {}", escala_inicial);
-        println!("Ingresar la temperatura inicial en número (dígito)");
-        let inicial = parsear_temp_inicial();
+    } else if initial_scale == "fahrenheit" {
+        println!("You chose the {} scale", initial_scale);
+        println!("Now enter the initial temperature in numbers.");
+        let inicial = parse_initial_temp();
         if inicial > -459.67{
-            let escala_final = escoger_escala();
-            if escala_inicial != escala_final {
-                if escala_final == "celsius"{
-                    temp_final = (inicial - 32.0) * 0.555 ;
-                    println!("La temperatura final es {} grados", temp_final);
-                } else if escala_final == "kelvin"{
-                    temp_final = (inicial + 459.67 ) * 0.555 ;
-                    println!("La temperatura final es {} grados", temp_final);
-                } else if escala_final == "rankine"{
-                    temp_final = inicial + 459.67 ;
-                    println!("La temperatura final es {} grados", temp_final);
+            let final_scale = choose_scale();
+            if initial_scale != final_scale {
+                if final_scale == "celsius"{
+                    final_temp = (inicial - 32.0) * 0.555 ;
+                    println!("The final temperature in degrees is {}", final_temp);
+                } else if final_scale == "kelvin"{
+                    final_temp = (inicial + 459.67 ) * 0.555 ;
+                    println!("The final temperature in degrees is {}", final_temp);
+                } else if final_scale == "rankine"{
+                    final_temp = inicial + 459.67 ;
+                    println!("The final temperature in degrees is {}", final_temp);
                 } else {
-                    println!("Ingresar una escala válida");
+                    println!("Please enter a valid scale");
                 }
                 } else {
-                    println!("Ingresar una escala distinta a la inicial");
+                    println!("Please enter a scale different to the original");
                 }
         } else {
-            println!("Ingresar una temperatura físicamente posible");
+            println!("Please enter a physicically valid temperature");
         }
 
-    } else if escala_inicial == "kelvin" {
-        println!("Escogiste la escala {}", escala_inicial);
-        println!("Ingresar la temperatura inicial en número (dígito)");
-        let inicial = parsear_temp_inicial();
+    } else if initial_scale == "kelvin" {
+        println!("You chose the {} scale", initial_scale);
+        println!("Now enter the initial temperature in numbers.");
+        let inicial = parse_initial_temp();
         if inicial > -1.0 {
-            let escala_final = escoger_escala();
-            if escala_inicial != escala_final {
-            if escala_final == "celsius"{
-                temp_final = inicial - 273.15 ;
-                println!("La temperatura final es {} grados", temp_final);                 
-            } else if escala_final == "fahrenheit"{
-                temp_final = (inicial * 1.8) - 459.667 ;               
-                println!("La temperatura final es {} grados", temp_final);
-            }  else if escala_final == "rankine"{
-                temp_final = inicial * 1.8 ;
-                println!("La temperatura final es {} grados", temp_final);
+            let final_scale = choose_scale();
+            if initial_scale != final_scale {
+            if final_scale == "celsius"{
+                final_temp = inicial - 273.15 ;
+                println!("The final temperature in degrees is {}", final_temp);                 
+            } else if final_scale == "fahrenheit"{
+                final_temp = (inicial * 1.8) - 459.667 ;               
+                println!("The final temperature in degrees is {}", final_temp);
+            }  else if final_scale == "rankine"{
+                final_temp = inicial * 1.8 ;
+                println!("The final temperature in degrees is {}", final_temp);
             } else {
-                println!("Ingresar una escala válida");
+                println!("Please enter a valid scale");
             }
             } else {
-                println!("Ingresar una escala distinta a la inicial");
+                println!("Please enter a scale different to the original");
             }
         } else {
             println!("Ingresar una temperatura inicial en número (dígito)");
         } 
 
-    } else if escala_inicial == "rankine" {
-        println!("Escogiste la escala {}", escala_inicial);
-        println!("Ingresar la temperatura inicial en número (dígito)");
-        let inicial = parsear_temp_inicial();
+    } else if initial_scale == "rankine" {
+        println!("You chose the {} scale", initial_scale);
+        println!("Now enter the initial temperature in numbers.");
+        let inicial = parse_initial_temp();
         if inicial > -1.0 {
-            let escala_final = escoger_escala();
-            if escala_inicial != escala_final {
-                if escala_final == "celsius" {
-                    temp_final = (inicial - 491.667) / 1.8;
-                    println!("La temperatura final es {} grados", temp_final);                    
-                } else if escala_final == "fahrenheit" {
-                    temp_final = inicial - 459.667;
-                    println!("La temperatura final es {} grados", temp_final);
-                } else if escala_final == "kelvin" {
-                    temp_final = inicial / 1.8;
-                    println!("La temperatura final es {} grados", temp_final);
+            let final_scale = choose_scale();
+            if initial_scale != final_scale {
+                if final_scale == "celsius" {
+                    final_temp = (inicial - 491.667) / 1.8;
+                    println!("The final temperature in degrees is {}", final_temp);                    
+                } else if final_scale == "fahrenheit" {
+                    final_temp = inicial - 459.667;
+                    println!("The final temperature in degrees is {}", final_temp);
+                } else if final_scale == "kelvin" {
+                    final_temp = inicial / 1.8;
+                    println!("The final temperature in degrees is {}", final_temp);
                 } else {
-                    println!("Ingresar una escala válida");
+                    println!("Please enter a valid scale");
                 }
             } else {
-                println!("Ingresar una escala distinta a la inicial");
+                println!("Please enter a scale different to the original");
             }
         } else {
             println!("Ingresar una temperatura inicial en número (dígito)");
@@ -119,25 +119,25 @@ fn main() {
     } else {
         println!("Por favor ingresa una escala válida")
     }
-    println!("Ingresar enter para salir");
+    println!("Press a key to exit");
     io::stdin().read_line(&mut k)
-        .expect("Lo siento, no entendí eso muy bien");
+        .expect("Sorry, didn't quite catch that.");
 
 }
-fn parsear_temp_inicial() -> f32 {
+fn parse_initial_temp() -> f32 {
     let mut temp_inicial = String::new();
     io::stdin().read_line(&mut temp_inicial)
-        .expect("Lo siento, no entendí eso muy bien");
+        .expect("Sorry, didn't quite catch that.");
     let inicial: f32 = temp_inicial.trim().to_string().parse::<f32>().unwrap();
-    println!("La temperatura inicial es de {} grados", inicial);
+    println!("Initial temperature is {} degrees", inicial);
     return inicial;
   }
-fn escoger_escala()-> String {
-    let mut escala_final = String::new();
-    println!("Ahora ingresar la escala a que se desea convertir");
-    io::stdin().read_line(&mut escala_final)
-        .expect("Lo siento, no entendí eso muy bien");
-    escala_final = escala_final.to_lowercase().trim().to_string();
-    println!("Escogiste la escala final {}", escala_final);
-        return escala_final;
+fn choose_scale()-> String {
+    let mut final_scale = String::new();
+    println!("Now enter the desired scale to convert");
+    io::stdin().read_line(&mut final_scale)
+        .expect("Sorry, didn't quite catch that.");
+    final_scale = final_scale.to_lowercase().trim().to_string();
+    println!("You chose scale{}", final_scale);
+        return final_scale;
   }
