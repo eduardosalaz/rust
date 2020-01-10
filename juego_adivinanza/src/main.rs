@@ -4,31 +4,31 @@ use std::cmp::Ordering;
 
 fn main (){
 
-    let numero_secreto = rand::thread_rng().gen_range(1, 10);
+    let secret_num = rand::thread_rng().gen_range(1, 10);
     
-    println!("Adivina el número en el que estoy pensando");
-    println!("Estoy pensando en un número entre el 1 y el 10");
-    println!("¿Puedes adivinarlo?");
+    println!("Guess the number I am thinking of.");
+    println!("I am thinking of a number that is between 1 and 10.");
+    println!("Can you guess it?");
     
     loop {
-        let mut adivinanza = String::new();
+        let mut guess = String::new();
         
-        io::stdin().read_line(&mut adivinanza)
-            .expect("Lo siento, no entendí eso muy bien");
+        io::stdin().read_line(&mut guess)
+            .expect("Sorry, didn't quite catch that.");
             
-        let adivinanza: u32 = match adivinanza.trim().parse() {
+        let guess: u32 = match guess.trim().parse() {
             Ok(num) => num,
             Err(_) => continue, 
         };
         
-        println!("Adivinaste: {}", adivinanza);
+        println!("Your guess is: {}", guess);
         
-        match adivinanza.cmp(&numero_secreto) {
-            Ordering::Less => println!("Demasiado pequeño."),
-            Ordering::Greater => println!("Demasiado grande."),
+        match guess.cmp(&secret_num) {
+            Ordering::Less => println!("Too small."),
+            Ordering::Greater => println!("Too big."),
             Ordering::Equal => {
-                println!("Ganaste");
-                println!("El número en el que estaba pensando es {}", numero_secreto);
+                println!("You won!");
+                println!("The number that I was thinking of is {}", secret_num);
                 break;
             }
         }
