@@ -6,6 +6,8 @@ Apparently, in order for compilation to happen you need some C linkers, in my ca
 I use VS Code as my text editor (although it's almost like a complete IDE). In the future I may or may not use [Visual Rust](https://marketplace.visualstudio.com/items?itemName=vosen.VisualRust), a VS extension for Rust Dev. I am also interested in using [Rust Lang Server](https://github.com/rust-lang/rls) for integration with Vim. In the meantime, I will stick with VS Code.
   ## Sidenote
   ~~Rust Lang Server keeps crashing on VS Code and I have no reason why.~~
+  You can't open multiple Rust Folders at once in VS Code without RLS crashing so you may want to use another directory for your
+  working files.
   
 
 # TODO
