@@ -14,4 +14,4 @@ I use VS Code as my text editor (although it's almost like a complete IDE). In t
 - [ ] Build something nice.
 - [ ] Learn data structures and algorithms for real.
 - [ ] Convince everyone else to use Rust instead.
-- [ ] Translate code to english for more visibility.
+- [x] Translate code to english for more visibility.
