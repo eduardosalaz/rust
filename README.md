@@ -7,7 +7,7 @@ I use VS Code as my text editor (although it's almost like a complete IDE). In t
   ## Sidenote
   ~~Rust Lang Server keeps crashing on VS Code and I have no reason why.~~
   You can't open multiple Rust Folders at once in VS Code without RLS crashing so you may want to use another directory for your
-  working files.
+  working files (Workspaces don't work).
   
 
 # TODO
