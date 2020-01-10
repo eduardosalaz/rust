@@ -6,7 +6,7 @@ WORKS SUCCESFULLY.
 
 fn main() {
     let mut n:u64 =600851475143;
-    let mut i:u64 = 2;
+    let mut i:u32 = 2;
     while i * i < n{
         while n % i == 0{
             n = n / i;
