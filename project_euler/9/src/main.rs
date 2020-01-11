@@ -9,8 +9,8 @@ WORKS SUCCESFULLY but for some reason C is calculated as 425 where it should be 
 use std::f64;
 fn main() {
     let mut a:f64 = 3.0;
-    let mut b:f64;
-    let mut c:f64;
+    let mut b:f64 = 0.0;
+    let mut c:f64 = 0.0;
     let limit:f64 = 1000.0;
     let mut product:f64 = 0.0;
     while a < limit {
@@ -25,5 +25,6 @@ fn main() {
         }
     a += 1.0;  
     }
+    println!("A is {}, B is {}, C is {}", a, b, c);
     println!("The product is {}", product);
 }
